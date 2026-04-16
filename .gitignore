@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# markdown files ignore
+*.md
+
+# specific file ignore
+prompt.md
+notes.md
+
+# folder ignore
+docs/
+ai-prompts/

@@ -1,26 +1,53 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f7ff;
+  --foreground: #1b1538;
+  --surface: #f3f0ff;
+  --card-bg: #ffffff;
+  --muted-text: #6a6192;
+  --border-color: #dfd7ff;
+  --accent: #7c3aed;
+  --accent-soft: #a78bfa;
+  --soft-shadow: 0 18px 42px -26px rgba(74, 43, 140, 0.35);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-ibm-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0f0a1f;
+  --foreground: #ede9fe;
+  --surface: #1a1230;
+  --card-bg: #221742;
+  --muted-text: #b8addf;
+  --border-color: #3c2e6c;
+  --accent: #a855f7;
+  --accent-soft: #c084fc;
+  --soft-shadow: 0 18px 42px -24px rgba(0, 0, 0, 0.85);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), sans-serif;
+  background-image:
+    radial-gradient(900px circle at 6% -14%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 56%),
+    radial-gradient(1100px circle at 94% -8%, color-mix(in srgb, #ec4899 20%, transparent), transparent 58%),
+    radial-gradient(800px circle at 54% 115%, color-mix(in srgb, #60a5fa 16%, transparent), transparent 60%);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 50%, transparent) transparent;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, white);
+  color: #0f172a;
 }
